@@ -1,169 +1,121 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zé do Criatório</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zé do Criatório</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- MENU LATERAL -->
-    <aside class="sidebar">
+<header>
+    <h1>🐦 Zé do Criatório</h1>
+    <p>Sistema completo para criadores de aves</p>
+</header>
 
-        <div class="logo">
-            <img src="img/logo.png" alt="Zé do Criatório">
-        </div>
 
-        <nav>
+<section class="bemvindo">
+    <h2>Bem-vindo, Criador!</h2>
+    <p>
+        Organize seu plantel de forma simples,
+        rápida e profissional.
+    </p>
 
-            <a class="ativo" href="#">
-                <i class="fa-solid fa-house"></i>
-                Início
-            </a>
+    <a href="aves.html">
+<button>+ Cadastrar Ave</button>
+</a>
+</section>
 
-            <a href="#">
-                <i class="fa-solid fa-dove"></i>
-                Aves
-            </a>
 
-            <a href="#">
-                <i class="fa-solid fa-heart"></i>
-                Casais
-            </a>
+<section class="painel">
 
-            <a href="#">
-                <i class="fa-solid fa-egg"></i>
-                Ninhadas
-            </a>
+    <div class="card">
+        🐦
+        <h3>Aves</h3>
+        <p>Cadastro e ficha das aves</p>
+    </div>
 
-            <a href="#">
-                <i class="fa-solid fa-ring"></i>
-                Anilhas
-            </a>
+    <div class="card">
+        🧬
+        <h3>Genealogia</h3>
+        <p>Árvore genética e linhagem</p>
+    </div>
 
-            <a href="#">
-                <i class="fa-solid fa-feather"></i>
-                Filhotes
-            </a>
+    <div class="card">
+        🥚
+        <h3>Reprodução</h3>
+        <p>Controle de ninhadas</p>
+    </div>
 
-            <a href="#">
-                <i class="fa-solid fa-chart-column"></i>
-                Relatórios
-            </a>
+    <div class="card">
+        📋
+        <h3>Documentos</h3>
+        <p>Anilhas e registros</p>
+    </div>
 
-            <a href="#">
-                <i class="fa-solid fa-syringe"></i>
-                Manejo
-            </a>
+    <div class="card">
+        📸
+        <h3>Galeria</h3>
+        <p>Fotos do criatório</p>
+    </div>
 
-            <a href="#">
-                <i class="fa-solid fa-gear"></i>
-                Configurações
-            </a>
+    <div class="card">
+        ⚙
+        <h3>Configurações</h3>
+        <p>Ajustes do sistema</p>
+    </div>
 
-        </nav>
+</section>
 
-        <button class="sair">
-            <i class="fa-solid fa-right-from-bracket"></i>
-            Sair
-        </button>
+<section class="resumo">
 
-    </aside>
+<h2>📊 Resumo do Criatório</h2>
 
-    <!-- CONTEÚDO -->
-    <main class="conteudo">
+<div class="painel">
 
-        <!-- TOPO -->
-        <header>
+<div class="card">
+🐦
+<h2 id="avesTotal">0</h2>
+<p>Aves</p>
+</div>
 
-            <div class="titulo">
-                <h1>Olá, Criador! 🌿</h1>
-                <p>Bem-vindo ao painel do seu criatório.</p>
-            </div>
+<div class="card">
+🥚
+<h2 id="reproTotal">0</h2>
+<p>Reproduções</p>
+</div>
 
-            <img src="img/ze-banner.png" class="mascote">
+<div class="card">
+🏅
+<h2 id="anilhasTotal">0</h2>
+<p>Anilhas</p>
+</div>
 
-        </header>
+<div class="card">
+🌳
+<h2 id="pedigreeTotal">0</h2>
+<p>Pedigrees</p>
+</div>
 
-        <!-- CARDS -->
-        <section class="cards">
+</div>
 
-            <div class="card">
-                <i class="fa-solid fa-dove"></i>
-                <h2>28</h2>
-                <p>Aves Cadastradas</p>
-            </div>
+</section>
 
-            <div class="card">
-                <i class="fa-solid fa-heart"></i>
-                <h2>14</h2>
-                <p>Casais Formados</p>
-            </div>
+<script>
 
-            <div class="card">
-                <i class="fa-solid fa-egg"></i>
-                <h2>9</h2>
-                <p>Ninhadas</p>
-            </div>
+document.getElementById("avesTotal").innerHTML =
+(JSON.parse(localStorage.getItem("aves")) || []).length;
 
-            <div class="card">
-                <i class="fa-regular fa-circle"></i>
-                <h2>42</h2>
-                <p>Anilhas</p>
-            </div>
+document.getElementById("reproTotal").innerHTML =
+(JSON.parse(localStorage.getItem("reproducoes")) || []).length;
 
-            <div class="card">
-                <i class="fa-solid fa-feather"></i>
-                <h2>36</h2>
-                <p>Filhotes</p>
-            </div>
+document.getElementById("anilhasTotal").innerHTML =
+(JSON.parse(localStorage.getItem("anilhas")) || []).length;
 
-            <div class="card">
-                <i class="fa-solid fa-chart-column"></i>
-                <h2>12</h2>
-                <p>Relatórios</p>
-            </div>
+document.getElementById("pedigreeTotal").innerHTML =
+(JSON.parse(localStorage.getItem("pedigrees")) || []).length;
 
-        </section>
-
-        <!-- GRÁFICOS -->
-        <section class="graficos">
-
-            <div class="grafico">
-
-                <h2>Nascimentos (este mês)</h2>
-
-                <div class="numero">
-                    28
-                </div>
-
-                <div class="linha"></div>
-
-            </div>
-
-            <div class="grafico">
-
-                <h2>Aves cadastradas</h2>
-
-                <div class="numero azul">
-                    142
-                </div>
-
-                <div class="pizza"></div>
-
-            </div>
-
-        </section>
-
-    </main>
-
+</script>
 </body>
-
 </html>
